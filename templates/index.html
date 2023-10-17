@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空氣品質查詢</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style/style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <div class="up FSO5">更新時間：2023.10.06 15:00</div>
+            <div class="botton">
+                <div class="FS2">台北市信義區</div>
+                <div class="FS3 FW700">空氣品質良好</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="option">
+                <div>
+                    <label for="location">選擇縣市：</label>
+                    <select>
+                        <option value="">台北市</option>
+                        <option value="">新北市</option>
+                        <!-- 其他縣市 -->
+                    </select>
+                </div>
+                <div>
+                    <label for="location">選擇監測站：</label>
+                    <select>
+                        <option value="">松山</option>
+                        <option value="">大同</option>
+                        <!-- 其他監測站 -->
+                    </select>
+                </div>
+            </div>
+            <div class="aqiEle">
+                <div class="aqi FS2 FW700">118</div>
+            </div>
+            <hr>
+            <div class="quality">
+                <div class="info">
+                    <span>PM2.5 (μg/m3) 細懸浮微粒 移動平均</span>
+                    <span>18.7</span>
+                </div>
+                <div class="info">
+                    <span>PM2.5 (μg/m3) 細懸浮微粒 小時濃度</span>
+                    <span>21</span>
+                </div>
+                <div class="info">
+                    <span>PM10 (μg/m3) 懸浮微粒 移動平均</span>
+                    <span>35</span>
+                </div>
+                <div class="info">
+                    <span>PM10 (μg/m3) 懸浮微粒 小時濃度</span>
+                    <span>34</span>
+                </div>
+                <div class="info">
+                    <span>O3 (ppb) 臭氧 8小時移動平均</span>
+                    <span>76</span>
+                </div>
+                <div class="info">
+                    <span>O3 (ppb) 臭氧 小時濃度</span>
+                    <span>69</span>
+                </div>
+                <div class="info">
+                    <span>CO (ppm) 一氧化碳 8小時移動平均</span>
+                    <span>0.20</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
