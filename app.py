@@ -43,7 +43,7 @@ dict_county = {1: '臺中市', 2: '苗栗縣', 3: '新竹縣',
                 19: '澎湖縣', 20: '宜蘭縣', 21: '桃園市', 
                 22: '新竹市'}
 
-@app.route('/api/sites/<int:county_id>', methods=['GET'])
+@app.route('/api/county/<int:county_id>', methods=['GET'])
 def fetch_data_all(county_id):
     api_url = 'https://data.moenv.gov.tw/api/v2/aqx_p_432'
     api_key = 'b0943a5c-9874-481b-83aa-f710549515a1'
@@ -61,6 +61,13 @@ def fetch_data_all(county_id):
         
         # data_func = create_county_dict(data)
         # print(data_func)
+        
+        if not county_id in dict_county:
+            response = {
+                    "error": True,
+                    "message": "county_id is not correct!"
+                    }
+            return jsonify(response)
         
         for index in range(len(data)):
             if data[index]['county'] == dict_county[county_id]:
