@@ -17,14 +17,14 @@ function constructOption(choice,search){
         search.appendChild(option);
     }
 }
-
-//建構縣市選項
+//頁面載入後初始function
 function init(){
     constructOption(cityChoice,searchCity);
+    buildupCitySite(1);
 }
 init();
 
-//獲取所選擇的縣市id
+//獲取縣市id
 function getCityId(){
     let cityName = searchCity.value;
     for(let key in cityChoice){
@@ -35,25 +35,6 @@ function getCityId(){
         }
     }
 }
-        
-//         let responseDict = {
-//             'country': response['country'],
-//             'sitename': response['sitename'],
-//             'latitude': response['latitude'],
-//             'longitude': response['longitude'],
-//             'AQI': response['aqi'],
-//             'status': response['status'],
-//             'pollutant': response['pollutant'],
-//             'o3_8hours': response['o3_8hr'],
-//             'particle2_5': response['pm2.5'],
-//             'publishtime': response['publishtime'],
-//             'so2': response['so2'],
-//             'co': response['co'],
-//             'o3': response['o3']
-//         }
-//         return responseDict;
-//     })
-// }
 
 //建構獲取資料函式
 async function fetchFunction(url){
@@ -62,8 +43,36 @@ async function fetchFunction(url){
     return data;
 }
 
+//建構區域選項
+async function buildupCitySite(id){
+    return fetchFunction(`/api/county/${id}`)
+    .then(data=>{
+        let citySites = {};
+        for(let key= 0;key<data.data.length;key++){
+            let sitename = data.data[key]['sitename'];
+            let siteId = data.data[key]['siteid'];
+            citySites[siteId] = sitename;
+        }
+        searchSite.innerHTML=`<option value="" disabled selected style="display:none;">請選擇</option>`;
+        constructOption(citySites,searchSite)
+        return citySites;
+    })
+}
+
+//監聽縣市選擇事件
+let cityId;
 searchCity.addEventListener('change',()=>{
-    let cityId = parseInt(getCityId());
-    fetchFunction(`/api/sites/${cityId}`)
-    constructOption(choice,search)
+    cityId = parseInt(getCityId());
+    buildupCitySite(cityId)
+    return cityId;
+})
+
+//獲取縣市空氣汙染資訊
+ async function getSitePollutionInfo(){
+
+ }
+//監聽區域選擇事件
+searchSite.addEventListener('change',()=>{
+    let siteName = searchSite.value;
+    console.log(cityId);
 })

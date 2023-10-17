@@ -27,18 +27,14 @@
             <div class="option">
                 <div>
                     <label for="location">選擇縣市：</label>
-                    <select>
-                        <option value="">台北市</option>
-                        <option value="">新北市</option>
-                        <!-- 其他縣市 -->
+                    <select id="city">
+                        <option value="" disabled selected style="display:none;">請選擇</option>
                     </select>
                 </div>
                 <div>
                     <label for="location">選擇監測站：</label>
-                    <select>
-                        <option value="">松山</option>
-                        <option value="">大同</option>
-                        <!-- 其他監測站 -->
+                    <select id="site">
+                        <option value="" disabled selected style="display:none;">請選擇</option>
                     </select>
                 </div>
             </div>
@@ -78,6 +74,6 @@
             </div>
         </div>
     </div>
+    <script src="../static/script/script.js"></script>
 </body>
-
 </html>
