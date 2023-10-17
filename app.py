@@ -3,7 +3,7 @@ from flask import *
 import requests
 # import mysql.connector.pooling
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='static')
 
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
@@ -94,5 +94,9 @@ def create_county_dict(data):
 # scheduler.add_job(scheduled_task, 'interval', hours=1)
 # scheduler.start()
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=2000, debug=True)
