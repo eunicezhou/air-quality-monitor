@@ -1,18 +1,12 @@
-from flask import Flask, jsonify
 from flask import *
 import requests
-# import mysql.connector.pooling
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 
 app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 
-# Create a connection pool
-# db_config = {}
-# connection_pool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool", pool_size=5, **db_config)
-
-# Step 2: Write a Route to Fetch Data
+# Step 1: Write a Route to Fetch Data
 @app.route('/api/site/<int:site_id>', methods=['GET'])
 def fetch_data(site_id):
     api_url = 'https://data.moenv.gov.tw/api/v2/aqx_p_432'
@@ -23,13 +17,11 @@ def fetch_data(site_id):
     }
 
     response = requests.get(api_url, params=params)
-    # print(response.text)
 
     if response.status_code == 200:
         data = response.json()
         data_onesite = data['records'][site_id]
         data_formatted = {'data': data_onesite}
-        print(data_formatted)
         return jsonify(data_formatted)
     else:
         return jsonify({'error': 'Failed to fetch data'}), 500
@@ -58,9 +50,6 @@ def fetch_data_all(county_id):
         data_county = []
         data = response.json()
         data = data['records']
-        print(data)
-        # data_func = create_county_dict(data)
-        # print(data_func)
         
         if not county_id in dict_county:
             response = {
@@ -86,10 +75,9 @@ def create_county_dict(data):
     data_dict = {}
     for index, value in enumerate(data_list, start=1):
         data_dict[index] = value
-    # print(data_dict)
     return data_dict
     
-## Step 3: Implement Periodic Task (no need to do this part to update database)
+## Step 2: Implement Periodic Task (no need to do this part to update database)
 # from apscheduler.schedulers.background import BackgroundScheduler
 
 # def scheduled_task():
@@ -107,7 +95,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=2000, debug=True)
-    
-    
-    
-# this is a test for fork and merge. Farren
