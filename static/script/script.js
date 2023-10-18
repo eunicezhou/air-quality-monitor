@@ -18,11 +18,7 @@ function constructOption(choice,search){
     }
 }
 //頁面載入後初始function
-function init(){
-    constructOption(cityChoice,searchCity);
-    buildupCitySite(1);
-}
-init();
+constructOption(cityChoice,searchCity);
 
 //獲取縣市id
 function getCityId(){
@@ -30,24 +26,26 @@ function getCityId(){
     for(let key in cityChoice){
         if(cityChoice[key]=== cityName){
             let id = key
-            console.log(id);
             return id
         }
     }
 }
 
 //建構獲取資料函式
-async function fetchFunction(url){
-    let response = await fetch(url);
+async function fetchFunction(){
+    let response = await fetch(`/api/county/${cityId}`);
     let data = response.json();
     return data;
 }
 
-//建構區域選項
-async function buildupCitySite(id){
-    return fetchFunction(`/api/county/${id}`)
+//監聽縣市選擇事件
+let citySites;
+let cityId;
+searchCity.addEventListener('change',()=>{
+    cityId = parseInt(getCityId());
+    fetchFunction()
     .then(data=>{
-        let citySites = {};
+        citySites = {};
         for(let key= 0;key<data.data.length;key++){
             let sitename = data.data[key]['sitename'];
             let siteId = data.data[key]['siteid'];
@@ -57,22 +55,39 @@ async function buildupCitySite(id){
         constructOption(citySites,searchSite)
         return citySites;
     })
-}
-
-//監聽縣市選擇事件
-let cityId;
-searchCity.addEventListener('change',()=>{
-    cityId = parseInt(getCityId());
-    buildupCitySite(cityId)
-    return cityId;
 })
 
-//獲取縣市空氣汙染資訊
- async function getSitePollutionInfo(){
-
- }
 //監聽區域選擇事件
 searchSite.addEventListener('change',()=>{
     let siteName = searchSite.value;
-    console.log(cityId);
+    for(let siteId in citySites){
+        if (citySites[`${siteId}`] === siteName){
+            fetchFunction(cityId)
+            .then(data=>{
+                for(let num= 0;num<data.data.length;num++){
+                    if(data.data[num]['siteid'] === siteId){
+                        console.log(data.data[num]);
+                        const AQI = document.querySelector(".aqi")
+                        AQI.textContent = data.data[num]['aqi'];
+                        const particle = document.querySelector("#pm2_5")
+                        particle.textContent = data.data[num]['pm2.5_avg'];
+                        const o3 = document.querySelector("#o3");
+                        o3.textContent = data.data[num]['o3'];
+                        const CO = document.querySelector("#CO");
+                        CO.textContent = data.data[num]['co'];
+                        const SO2 = document.querySelector("#SO2");
+                        SO2.textContent = data.data[num]['so2_avg'];
+                        const NO2 = document.querySelector("#NO2");
+                        NO2.textContent = data.data[num]['no2'];
+                        const location = document.querySelector(".FS2");
+                        location.textContent = data.data[num]['county']+data.data[num]['sitename'];
+                        const status = document.querySelector(".FS3");
+                        status.textContent = data.data[num]['status'];
+                        const updateTime = document.querySelector("#updateTime");
+                        updateTime.textContent = data.data[num]['publishtime'];
+                    }
+                }
+            })
+        }
+    }
 })
