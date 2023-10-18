@@ -1,100 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>空氣品質查詢</title>
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
     <link rel="stylesheet" href="../static/style/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="view">
-        <div class="view-container">
-            <div class="view-slogan">
-                <p>
-                    Air Quality Monitoring
-                    <svg xmlns="http://www.w3.org/2000/svg" height="0.4em" viewBox="0 0 512 512">
-                        <path
-                            d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z" />
-                    </svg>
-                </p>
-            </div>
-            <div class="button-box">
-                <a class="start-button" href="#main">Let's Start </a>
-            </div>
+      <div class="view-container">
+        <div class="view-slogan">
+          <p>
+            Air Quality Monitoring
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="0.4em"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z"
+              />
+            </svg>
+          </p>
         </div>
+        <div class="button-box">
+          <a id="start-button" class="start-button" href="#main"
+            >Let's Start
+          </a>
+        </div>
+      </div>
     </div>
     <div id="main" class="main">
-        <div class="left">
-            <div class="up FSO5">更新時間：<span id="updateTime"></span></div>
-            <div class="botton">
-                <div id="county" class="FS2"></div>
-                <div id="status" class="FS3 FW700"></div>
-            </div>
+      <div class="left">
+        <div class="up FSO5">更新時間：<span id="updateTime"></span></div>
+        <div class="botton">
+          <div id="county" class="FS2"></div>
+          <div id="status" class="FS3 FW700"></div>
         </div>
-        <div class="card">
-            <div class="option">
-                <div>
-                    <label for="location">選擇縣市：</label>
-                    <select id="city">
-                        <option disabled selected style="display:none;">請選擇</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="location">選擇監測站：</label>
-                    <select id="site">
-                        <option disabled selected style="display:none;">請選擇</option>
-                    </select>
-                </div>
+      </div>
+      <div class="card">
+        <div class="option-box">
+          <div class="dropdown">
+            <div class="city-select">
+              <span class="city-selected">臺北市</span>
+              <div class="city-caret"></div>
             </div>
-            <div class="aqiEle">
-                <div class="aqi-container">
-                    <div class="circle-outer">
-                        <div class="circle-inner">
-                            <div id="aqi-number" class="FS2 FW700"></div>
-                        </div>
-                    </div>
+            <ul id="city" class="city-menu"></ul>
+          </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-                        <defs>
-                            <linearGradient id="GradientColor">
-                                <stop offset="0%" id="green-stop" stop-color="#98D8AA" />
-                                <stop offset="100%" id="red-stop" stop-color="#98D8AA" />
-                            </linearGradient>
-                        </defs>
-                        <circle class="control-circle" cx="80" cy="80" r="70" stroke-linecap="round" />
-                    </svg>
-                </div>
+          <div class="site-dropdown">
+            <div class="site-select">
+              <span class="site-selected">中山</span>
+              <div class="site-caret"></div>
             </div>
-            <hr>
-            <div class="quality">
-                <div class="info">
-                    <span>PM2.5 (μg/m3) 細懸浮微粒 小時濃度</span>
-                    <span id="pm2_5"></span>
-                </div>
-                <div class="info">
-                    <span>O3 (ppb) 臭氧 小時濃度</span>
-                    <span id="o3"></span>
-                </div>
-                <div class="info">
-                    <span>CO (ppm) 一氧化碳 小時濃度</span>
-                    <span id="CO"></span>
-                </div>
-                <div class="info">
-                    <span>SO2 (ppb) 二氧化硫 小時濃度</span>
-                    <span id="SO2"></span>
-                </div>
-                <div class="info">
-                    <span>NO2 (ppb) 二氧化氮 小時濃度</span>
-                    <span id="NO2"></span>
-                </div>
-            </div>
+            <ul id="site" class="site-menu"></ul>
+          </div>
         </div>
+
+        <div class="option">
+          <div>
+            <!-- <label for="location">選擇縣市：</label>
+            <select id="city">
+              <option disabled selected style="display: none">請選擇</option>
+            </select> -->
+          </div>
+          <div>
+            <!-- <label for="location">選擇監測站：</label>
+            <select id="site">
+              <option disabled selected style="display: none">請選擇</option>
+            </select> -->
+          </div>
+        </div>
+        <div class="aqiEle">
+          <div class="aqi-container">
+            <div class="circle-outer">
+              <div class="circle-inner">
+                <div id="aqi-number" class="FS2 FW700"></div>
+              </div>
+            </div>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="GradientColor">
+                  <stop offset="0%" id="green-stop" stop-color="#333" />
+                  <stop offset="100%" id="red-stop" stop-color="#333" />
+                </linearGradient>
+              </defs>
+              <circle
+                class="control-circle"
+                cx="80"
+                cy="80"
+                r="70"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+        <hr />
+        <div class="quality">
+          <div class="info">
+            <span>PM2.5 (μg/m3) 細懸浮微粒 小時濃度</span>
+            <span id="pm2_5"></span>
+          </div>
+          <div class="info">
+            <span>O3 (ppb) 臭氧 小時濃度</span>
+            <span id="o3"></span>
+          </div>
+          <div class="info">
+            <span>CO (ppm) 一氧化碳 小時濃度</span>
+            <span id="CO"></span>
+          </div>
+          <div class="info">
+            <span>SO2 (ppb) 二氧化硫 小時濃度</span>
+            <span id="SO2"></span>
+          </div>
+          <div class="info">
+            <span>NO2 (ppb) 二氧化氮 小時濃度</span>
+            <span id="NO2"></span>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="/static/script/numberCounter.js"></script>
-    <script src="../static/script/script.js"></script>
-</body>
 
+    <script src="/static/script/numberCounter.js"></script>
+    <script src="/static/script/dropdownMenu.js"></script>
+    <script src="/static/script/script.js"></script>
+  </body>
 </html>

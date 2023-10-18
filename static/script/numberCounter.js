@@ -25,7 +25,7 @@ const updateAqiAndCircle = (targetNumber, element) => {
       element.textContent = dotNumber.toFixed(2);
       counter += 0.1;
     }
-  }, 1);
+  }, 10);
 };
 
 const calculateStrokeDashoffset = (aqiNumber) => {
@@ -38,7 +38,7 @@ let updateGradientColor = (aqiNumber) => {
   const redStop = document.getElementById("red-stop");
 
   const percentage = (aqiNumber / 500) * 100;
-  const color = getColorForPercentage(percentage);
+  const color = getColorForPercentage(aqiNumber);
   greenStop.setAttribute("stop-color", color);
   redStop.setAttribute("stop-color", color);
 
@@ -46,12 +46,12 @@ let updateGradientColor = (aqiNumber) => {
   controlCircle.style.stroke = gradient;
 };
 
-let getColorForPercentage = (percentage) => {
-  if (percentage <= 25) {
+let getColorForPercentage = (aqiNumber) => {
+  if (aqiNumber <= 25) {
     return "#98D8AA";
-  } else if (percentage <= 50) {
+  } else if (aqiNumber <= 50) {
     return "#F3E99F";
-  } else if (percentage <= 75) {
+  } else if (aqiNumber <= 75) {
     return "#F7D060";
   } else {
     return "#FF6D60";
