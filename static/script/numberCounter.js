@@ -1,10 +1,12 @@
-const aqiNumber = document.querySelector(".aqi-number");
+const aqiNumber = document.getElementById("aqi-number");
 const pm25Data = document.getElementById("pm25-data");
-const targetAqi = 250;
-const targetPm25Data = 18.7;
 
 const updateAqiAndCircle = (targetNumber, element) => {
   const controlCircle = document.querySelector(".control-circle");
+
+  if (isNaN(targetNumber)) {
+    targetNumber = 0;
+  }
 
   let counter = 0;
   const intervalId = setInterval(() => {
@@ -19,7 +21,7 @@ const updateAqiAndCircle = (targetNumber, element) => {
       controlCircle.style.setProperty("--dash-offset", dashoffset);
       updateGradientColor(counter);
     } else {
-      let dotNumber = counter - 0.1;
+      let dotNumber = counter;
       element.textContent = dotNumber.toFixed(2);
       counter += 0.1;
     }
@@ -55,6 +57,3 @@ let getColorForPercentage = (percentage) => {
     return "#FF6D60";
   }
 };
-
-updateAqiAndCircle(targetAqi, aqiNumber);
-updateAqiAndCircle(targetPm25Data, pm25Data);
