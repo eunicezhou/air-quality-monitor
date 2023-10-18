@@ -28,8 +28,8 @@ def fetch_data(site_id):
     if response.status_code == 200:
         data = response.json()
         data_onesite = data['records'][site_id]
-        print(data)
         data_formatted = {'data': data_onesite}
+        print(data_formatted)
         return jsonify(data_formatted)
     else:
         return jsonify({'error': 'Failed to fetch data'}), 500
@@ -58,7 +58,7 @@ def fetch_data_all(county_id):
         data_county = []
         data = response.json()
         data = data['records']
-        
+        print(data)
         # data_func = create_county_dict(data)
         # print(data_func)
         

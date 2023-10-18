@@ -17,10 +17,10 @@
 <body>
     <div class="main">
         <div class="left">
-            <div class="up FSO5">更新時間：2023.10.06 15:00</div>
+            <div class="up FSO5">更新時間：<span id="updateTime"></span></div>
             <div class="botton">
-                <div class="FS2">台北市信義區</div>
-                <div class="FS3 FW700">空氣品質良好</div>
+                <div class="FS2"></div>
+                <div class="FS3 FW700"></div>
             </div>
         </div>
         <div class="card">
@@ -39,37 +39,29 @@
                 </div>
             </div>
             <div class="aqiEle">
-                <div class="aqi FS2 FW700">118</div>
+                <div class="aqi FS2 FW700"></div>
             </div>
             <hr>
             <div class="quality">
                 <div class="info">
-                    <span>PM2.5 (μg/m3) 細懸浮微粒 移動平均</span>
-                    <span>18.7</span>
-                </div>
-                <div class="info">
                     <span>PM2.5 (μg/m3) 細懸浮微粒 小時濃度</span>
-                    <span>21</span>
-                </div>
-                <div class="info">
-                    <span>PM10 (μg/m3) 懸浮微粒 移動平均</span>
-                    <span>35</span>
-                </div>
-                <div class="info">
-                    <span>PM10 (μg/m3) 懸浮微粒 小時濃度</span>
-                    <span>34</span>
-                </div>
-                <div class="info">
-                    <span>O3 (ppb) 臭氧 8小時移動平均</span>
-                    <span>76</span>
+                    <span id="pm2_5"></span>
                 </div>
                 <div class="info">
                     <span>O3 (ppb) 臭氧 小時濃度</span>
-                    <span>69</span>
+                    <span id="o3"></span>
                 </div>
                 <div class="info">
-                    <span>CO (ppm) 一氧化碳 8小時移動平均</span>
-                    <span>0.20</span>
+                    <span>CO (ppm) 一氧化碳 小時濃度</span>
+                    <span id="CO"></span>
+                </div>
+                <div class="info">
+                    <span>SO2 (ppb) 二氧化硫 小時濃度</span>
+                    <span id="SO2"></span>
+                </div>
+                <div class="info">
+                    <span>NO2 (ppb) 二氧化氮 小時濃度</span>
+                    <span id="NO2"></span>
                 </div>
             </div>
         </div>
