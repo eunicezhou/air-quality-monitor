@@ -1,124 +1,238 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Noto Sans TC';
-    font-size: 20px;
-    font-weight: 400;
-    }
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
 
-.FSO7{
-    font-size: 0.7rem;
+html {
+  scroll-behavior: smooth;
 }
 
-.FS2{
-    font-size: 2rem;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Dosis", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
 }
 
-.FS3{
-    font-size: 3rem;
+.view {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, transparent 0, #333 99vh),
+    url("/static/images/iceland-fog.jpeg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.FW500{
-    font-weight: 500;
+.view-container {
+  width: 800px;
+  height: 500px;
+  border: 5px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.FW700{
-    font-weight: 700;
+.view-slogan p {
+  font-size: 50px;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.main{
-    background-image: url('https://i.gifer.com/srG.gif');
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
+.view-slogan svg {
+  fill: #ffffff;
 }
 
-.left{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.button-box {
+  margin: 20px;
 }
 
-.up{
-    color: #ffffff;
-    position: relative;
-    padding: 20px;
+.button-box a {
+  font-size: 25px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
-.botton{
-    color: #ffffff;
-    position: relative;
-    bottom: 90px;
-    left: 50px;
+.button-box svg {
+  fill: #ffffff;
+}
+.button-box a:hover {
+  color: bisque;
 }
 
-.card{
-    width: 50vw;
-    height: 100vh;
-    background-color: rgba(51, 51, 51, 0.7);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.7);
+.aqi-container {
+  width: 160px;
+  height: 160px;
+  position: relative;
 }
 
-
-.option{
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.circle-outer {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 6px 6px 10px -1px rgba(255, 255, 255, 0.15),
+    -6px -6px 10px -1px rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-select{
-    padding: 7px; 
-    font-size: 12px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.913);
-    color: #333; 
-    width: 120px; 
-    height: 30px;
+.circle-inner {
+  box-sizing: border-box;
+  box-shadow: inset 4px 4px 6px -1px rgba(255, 255, 255, 0.2),
+    inset -4px -4px 6px -1px rgba(0, 0, 0, 0.7),
+    -0.5px -0.5px 0px rgba(0, 0, 0, 1),
+    0.5px 0.5px 0px rgba(255, 255, 255, 0.15),
+    0px 12px 10px -10px rgba(255, 255, 255, 0.05);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aqi-number {
+  color: lightgray;
+  font-size: 40px;
+}
+
+circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: circle-round 0.1s linear forwards;
+}
+
+.aqi-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes circle-round {
+  100% {
+    stroke-dashoffset: var(--dash-offset);
+  }
+}
+/* 472*(1-(118/500)) */
+/* =============================================================== */
+
+.FSO7 {
+  font-size: 0.7rem;
+}
+
+.FS2 {
+  font-size: 2rem;
+}
+
+.FS3 {
+  font-size: 3rem;
+}
+
+.FW500 {
+  font-weight: 500;
+}
+
+.FW700 {
+  font-weight: 700;
+}
+
+.main {
+  background-color: #333;
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.up {
+  color: #ffffff;
+  position: relative;
+  padding: 20px;
+}
+
+.botton {
+  color: #ffffff;
+  position: relative;
+  bottom: 90px;
+  left: 50px;
+}
+
+.card {
+  width: 50%;
+  height: 100vh;
+  background-color: rgba(51, 51, 51, 0.7);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.option {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+select {
+  padding: 7px;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.913);
+  color: #333;
+  width: 120px;
+  height: 30px;
 }
 
 select:focus {
-    border-color: #76b8fe; 
+  border-color: #76b8fe;
 }
 
-.aqiEle{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0 20px 0;
+.aqiEle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 20px 0;
 }
 
-.aqi{
-    width: 120px;
-    height: 120px;
-    border-radius: 100px;
-    background-color: rgb(178 244 98 / 70%);;
-    color:#ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.aqi {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  background-color: rgb(178 244 98 / 70%);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-hr{
-    border: 0;
-    border-bottom: 1px solid rgba(232, 232, 232, 0.5);
-    width: 85%;
-    margin: 20px auto;
+hr {
+  border: 0;
+  border-bottom: 1px solid rgba(232, 232, 232, 0.5);
+  width: 85%;
+  margin: 20px auto;
 }
 
-.quality{
-    padding: 0 30px 30px 30px;
+.quality {
+  padding: 0 30px 30px 30px;
 }
 
-.info{
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 10px;
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
 }
