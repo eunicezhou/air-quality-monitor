@@ -32,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 20px;
 }
 
 .view-slogan p {
@@ -58,6 +59,7 @@ body {
 .button-box svg {
   fill: #ffffff;
 }
+
 .button-box a:hover {
   color: #526d82;
 }
@@ -124,6 +126,7 @@ circle {
     stroke-dashoffset: var(--dash-offset);
   }
 }
+
 /* option======================================= */
 .option-box {
   display: flex;
@@ -375,7 +378,7 @@ hr {
   padding: 10px 10px;
 }
 
-.return-box{
+.return-box {
   box-sizing: border-box;
   border-radius: 10px;
   padding: 5px;
@@ -390,11 +393,11 @@ hr {
   align-items: center;
 }
 
-.return-box:hover{
+.return-box:hover {
   background-color: #333;
 }
 
-.return-box a{
+.return-box a {
   position: relative;
   display: block;
   width: 100%;
@@ -404,4 +407,60 @@ hr {
 .return {
   z-index: -1;
   fill: #ffffff;
+}
+
+
+@media (max-width: 600px) {
+  .view-container {
+    height: 30%;
+  }
+
+  .view-slogan p {
+    font-size: 30px;
+  }
+
+  .button-box a {
+    font-size: 15px;
+  }
+
+  .card {
+    width: 80%;
+    height: auto;
+    left: 50%;
+    top: 45%;
+  }
+
+  .title-box {
+    margin: 0;
+    font-size: 25px;
+  }
+
+  .dropdown,
+  .site-dropdown {
+    min-width: 5.5em;
+    margin: 5px 10px;
+    font-size: 16px;
+  }
+
+  .menu-open {
+    width: 210px;
+  }
+
+  .quality {
+    padding: 0 10px 0px 10px;
+    font-size: 16px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+  }
+
+  .botton {
+    bottom: 20px;
+    left: 20px;
+  }
 }
