@@ -3,7 +3,6 @@ const pm25Data = document.getElementById("pm25-data");
 
 const updateAqiAndCircle = (targetNumber, element) => {
   const controlCircle = document.querySelector(".control-circle");
-
   if (isNaN(targetNumber)) {
     targetNumber = 0;
   }
@@ -13,7 +12,7 @@ const updateAqiAndCircle = (targetNumber, element) => {
     if (counter >= targetNumber) {
       clearInterval(intervalId);
     }
-    if (targetNumber >= 50) {
+    if (targetNumber >= 40) {
       element.textContent = counter;
       counter += 1;
 
@@ -55,5 +54,19 @@ let getColorForPercentage = (aqiNumber) => {
     return "#F7D060";
   } else {
     return "#FF6D60";
+  }
+};
+
+let updateBackgroundImage = (airQuality) => {
+  const main = document.querySelector(".main");
+
+  if (airQuality >= 0 && airQuality <= 50) {
+    main.style.backgroundImage = 'url("/static/images/fresh.jpg")';
+  } else if (airQuality > 50 && airQuality <= 100) {
+    main.style.backgroundImage = 'url("/static/images/ok.jpg")';
+  } else if (airQuality > 100 && airQuality <= 150) {
+    main.style.backgroundImage = 'url("/static/images/notOK.jpg")';
+  } else {
+    main.style.backgroundImage = 'url("/static/images/pollution.jpg")';
   }
 };

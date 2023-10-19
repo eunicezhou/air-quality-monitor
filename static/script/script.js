@@ -114,6 +114,8 @@ let updateSiteInfo = (siteInfors, siteName) => {
       updateElement("SO2", siteData["so2_avg"]);
       updateElement("NO2", siteData["no2"]);
 
+      updateBackgroundImage(siteData["aqi"]);
+
       const location = document.getElementById("county");
       location.textContent = siteData["county"] + siteData["sitename"];
 

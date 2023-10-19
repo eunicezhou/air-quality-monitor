@@ -10,6 +10,7 @@ body {
   font-family: "Dosis", sans-serif;
   font-size: 20px;
   font-weight: 400;
+  text-shadow: #23242a;
 }
 
 .view {
@@ -116,7 +117,7 @@ circle {
 
 @keyframes circle-round {
   0% {
-    stroke-dashoffset: 472; 
+    stroke-dashoffset: 472;
   }
 
   100% {
@@ -142,27 +143,33 @@ circle {
   box-sizing: border-box;
 }
 
+.city-select:hover,
+.site-select:hover {
+  background-color: #dde6ed;
+  color: #27374d;
+}
+
 .site-dropdown * {
   box-sizing: border-box;
 }
 
 .city-select,
 .site-select {
-  background-color: #2a2f3b;
+  background-color: #27374d;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #2a2f3b;
+  border: 2px solid #526d82;
   border-radius: 0.5em;
-  padding: 1em;
+  padding: 0.8em;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .select-clicked {
-  border: 2px solid #26489a;
-  box-shadow: 0 0 0.8 #26489a;
+  border: 2px solid #526d82;
+  box-shadow: 0 0 0.8 #526d82;
 }
 
 .select:hover {
@@ -251,7 +258,9 @@ circle {
 }
 
 .main {
-  background-color: #333;
+  position: relative;
+  background-image: url("/static/images/fresh.jpg");
+  background-size: cover;
   height: 100vh;
   width: auto;
   display: flex;
@@ -279,14 +288,25 @@ circle {
 }
 
 .card {
-  width: 50%;
+  position: absolute;
+  z-index: 1;
+  left: 70%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
   height: 100vh;
-  background-color: rgba(51, 51, 51, 0.7);
   z-index: 1000;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.container {
+  width: 90%;
+  background-color: rgba(41, 41, 41, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
 }
 
 .option {
@@ -310,11 +330,18 @@ select:focus {
   border-color: #76b8fe;
 }
 
+.title-box {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  text-shadow: #526d82;
+}
+
 .aqiEle {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 0 20px 0;
 }
 
 .aqi {
