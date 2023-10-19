@@ -10,7 +10,7 @@ body {
   font-family: "Dosis", sans-serif;
   font-size: 20px;
   font-weight: 400;
-  text-shadow: #23242a;
+  text-shadow: 1px 1px #23242a;
 }
 
 .view {
@@ -130,13 +130,14 @@ circle {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  text-shadow: none;
 }
 
 .dropdown,
 .site-dropdown {
-  min-width: 10em;
+  min-width: 8em;
   position: relative;
-  margin: 2em;
+  margin: 1em;
 }
 
 .dropdown * {
@@ -160,9 +161,8 @@ circle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #526d82;
   border-radius: 0.5em;
-  padding: 0.8em;
+  padding: 0.5em;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -174,6 +174,7 @@ circle {
 
 .select:hover {
   background: #323741;
+  border: 2px solid #526d82;
 }
 
 .city-caret,
@@ -231,9 +232,12 @@ circle {
 }
 
 .menu-open {
-  display: block;
+  width: 502px;
+  display: flex;
+  flex-wrap: wrap;
   opacity: 1;
 }
+
 
 /* =============================================================== */
 
@@ -259,7 +263,8 @@ circle {
 
 .main {
   position: relative;
-  background-image: url("/static/images/fresh.jpg");
+  /* background-image: url("/static/images/fresh.jpg"); */
+  background-color: #333;
   background-size: cover;
   height: 100vh;
   width: auto;
@@ -303,7 +308,7 @@ circle {
 }
 
 .container {
-  width: 90%;
+  width: 500px;
   background-color: rgba(41, 41, 41, 0.5);
   backdrop-filter: blur(5px);
   border-radius: 10px;
@@ -331,7 +336,7 @@ select:focus {
 }
 
 .title-box {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   font-size: 30px;
@@ -358,16 +363,16 @@ select:focus {
 hr {
   border: 0;
   border-bottom: 1px solid rgba(232, 232, 232, 0.5);
-  width: 85%;
-  margin: 20px auto;
+  width: 90%;
+  margin: 10px auto;
 }
 
 .quality {
-  padding: 0 30px 30px 30px;
+  padding: 0 30px 20px 30px;
 }
 
 .info {
   display: flex;
   justify-content: space-between;
-  padding: 15px 10px;
+  padding: 10px 10px;
 }

@@ -96,6 +96,7 @@ function fetchFunction() {
       let response = await fetch(`/api/county/${cityId}`);
       let data = await response.json();
       resolve(data);
+      AOS.init();
     } catch (error) {
       reject(error);
     }

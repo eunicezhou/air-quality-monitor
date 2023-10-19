@@ -46,11 +46,11 @@ let updateGradientColor = (aqiNumber) => {
 };
 
 let getColorForPercentage = (aqiNumber) => {
-  if (aqiNumber <= 25) {
+  if (aqiNumber <= 50) {
     return "#98D8AA";
-  } else if (aqiNumber <= 50) {
+  } else if (aqiNumber <= 100) {
     return "#F3E99F";
-  } else if (aqiNumber <= 75) {
+  } else if (aqiNumber <= 150) {
     return "#F7D060";
   } else {
     return "#FF6D60";
@@ -65,7 +65,7 @@ let updateBackgroundImage = (airQuality) => {
   } else if (airQuality > 50 && airQuality <= 100) {
     main.style.backgroundImage = 'url("/static/images/ok.jpg")';
   } else if (airQuality > 100 && airQuality <= 150) {
-    main.style.backgroundImage = 'url("/static/images/notok.jpg")';
+    main.style.backgroundImage = 'url("/static/images/notOK.jpg")';
   } else {
     main.style.backgroundImage = 'url("/static/images/pollution.jpg")';
   }
