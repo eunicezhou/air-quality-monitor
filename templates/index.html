@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div class="view">
+    <div class="view" id="top">
       <div class="view-container">
         <div class="view-slogan">
           <p>
@@ -40,7 +40,7 @@
           更新時間：<span
             id="updateTime"
             data-aos="fade-right"
-            data-aos-delay="1400"
+            data-aos-delay="1500"
           ></span>
         </div>
         <div class="botton">
@@ -50,20 +50,6 @@
       </div>
       <div class="card">
         <div class="container" data-aos="flip-left" data-aos-duration="3000">
-          <!-- <div class="option">
-          <div>
-            <label for="location">選擇縣市：</label>
-            <select id="city">
-              <option disabled selected style="display: none">請選擇</option>
-            </select>
-          </div>
-          <div>
-            <label for="location">選擇監測站：</label>
-            <select id="site">
-              <option disabled selected style="display: none">請選擇</option>
-            </select>
-          </div>
-        </div> -->
           <div class="title-box">
             <p>Air Quality Index</p>
           </div>
@@ -141,10 +127,24 @@
           </div>
         </div>
       </div>
+      <div class="return-box">
+        <a href="#top" class="return">
+          <svg
+            class="return"
+            xmlns="http://www.w3.org/2000/svg"
+            height="2em"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M246.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 109.3 361.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160zm160 352l-160-160c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L224 301.3 361.4 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3z"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/static/script/optionAnimate.js"></script>
     <script src="/static/script/numberCounter.js"></script>
-    <script src="/static/script/dropdownMenu.js"></script>
     <script src="/static/script/script.js"></script>
   </body>
 </html>

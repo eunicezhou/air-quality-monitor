@@ -56,3 +56,24 @@ let setupSiteOptions = () => {
     });
   });
 };
+
+let updateBackgroundImage = (airQuality) => {
+  const main = document.querySelector(".main");
+  if (airQuality >= 0 && airQuality <= 50) {
+    setTimeout(() => {
+      main.style.backgroundImage = 'url("/static/images/fresh.jpg")';
+    }, 200);
+  } else if (airQuality > 50 && airQuality <= 100) {
+    setTimeout(() => {
+      main.style.backgroundImage = 'url("/static/images/ok.jpg")';
+  }, 200);
+  } else if (airQuality > 100 && airQuality <= 150) {
+    setTimeout(() => {
+      main.style.backgroundImage = 'url("/static/images/notOK.jpg")';
+  }, 200);
+  } else {
+    setTimeout(() => {
+      main.style.backgroundImage = 'url("/static/images/pollution.jpg")';
+  }, 200);
+  }
+};

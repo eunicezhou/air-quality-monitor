@@ -10,7 +10,7 @@ body {
   font-family: "Dosis", sans-serif;
   font-size: 20px;
   font-weight: 400;
-  text-shadow: 1px 1px #23242a;
+  text-shadow: 2px 2px #23242a;
 }
 
 .view {
@@ -59,7 +59,7 @@ body {
   fill: #ffffff;
 }
 .button-box a:hover {
-  color: bisque;
+  color: #526d82;
 }
 
 .aqi-container {
@@ -156,7 +156,6 @@ circle {
 
 .city-select,
 .site-select {
-  background-color: #27374d;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -195,11 +194,12 @@ circle {
 .site-menu {
   list-style: none;
   padding: 0.2em 0.5em;
-  background: #323741;
+  background-color: rgba(85, 85, 85, 0.8);
+  backdrop-filter: blur(5px);
   border: 1px solid #363a43;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
   border-radius: 0.5em;
-  color: #9fa5b5;
+  color: #ffffff;
   position: absolute;
   top: 3em;
   left: 50%;
@@ -214,7 +214,7 @@ circle {
 .city-menu li,
 .site-menu li {
   padding: 0.7em 0.5em;
-  margin: 0.3em 0;
+  margin: 0.2em 0;
   border-radius: 0.5em;
   cursor: pointer;
 }
@@ -237,7 +237,6 @@ circle {
   flex-wrap: wrap;
   opacity: 1;
 }
-
 
 /* =============================================================== */
 
@@ -263,7 +262,6 @@ circle {
 
 .main {
   position: relative;
-  /* background-image: url("/static/images/fresh.jpg"); */
   background-color: #333;
   background-size: cover;
   height: 100vh;
@@ -271,6 +269,7 @@ circle {
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
+  transition: background-image 2s ease;
 }
 
 .left {
@@ -304,7 +303,7 @@ circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
 }
 
 .container {
@@ -340,7 +339,6 @@ select:focus {
   display: flex;
   justify-content: center;
   font-size: 30px;
-  text-shadow: #526d82;
 }
 
 .aqiEle {
@@ -375,4 +373,35 @@ hr {
   display: flex;
   justify-content: space-between;
   padding: 10px 10px;
+}
+
+.return-box{
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 5px;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: rgba(41, 41, 41, 0.5);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.return-box:hover{
+  background-color: #333;
+}
+
+.return-box a{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.return {
+  z-index: -1;
+  fill: #ffffff;
 }
