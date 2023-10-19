@@ -65,7 +65,7 @@ let updateBackgroundImage = (airQuality) => {
   } else if (airQuality > 50 && airQuality <= 100) {
     main.style.backgroundImage = 'url("/static/images/ok.jpg")';
   } else if (airQuality > 100 && airQuality <= 150) {
-    main.style.backgroundImage = 'url("/static/images/notOK.jpg")';
+    main.style.backgroundImage = 'url("/static/images/notok.jpg")';
   } else {
     main.style.backgroundImage = 'url("/static/images/pollution.jpg")';
   }
